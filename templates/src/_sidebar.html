@@ -1,0 +1,44 @@
+{% load static %}
+{% load naijapodcast_tags %}
+<div class="col-md-4">
+						
+	<div class="page-sidebar">
+
+		{% if not request.path == '/search/' %}
+		<!-- ===== SEARCH ===== -->
+		<div class="sidebar-widget">
+			<h2 class="title-separator">Search</h2>
+			{% search_box request %}
+		</div>	
+		{% endif %}
+
+		<div class="sidebar-widget">
+			<h2 class="title-separator">Popular Blog Posts</h2>
+			{% get_popular_blog as blog_list %}
+			{% include 'src/_sidebar_blog_list.html' %}			
+		</div>
+
+		
+		<div class="sidebar-widget">
+			<h2 class="title-separator">Latest Blog Posts</h2>
+			{% get_latest_blog as blog_list %}
+			{% include 'src/_sidebar_blog_list.html' %}			
+		</div>
+
+		<!-- ===== PODCAST WIDGET ===== -->
+		<div class="sidebar-widget">
+			<h2 class="title-separator">Last Episode</h2>
+			{% get_last_podcast as podcast %}
+			<div class="podcast-card sidebar">
+				<figure class="podcast-image"><a href="{{ podcast.get_absolute_url }}"><img src="{{ podcast.image.url }}" alt=""></a></figure>
+				<div class="podcast-content">
+					<span class="podcast-date">{{ podcast.created|date:"F j, Y" }}</span>
+					<h2 class="podcast-title"><a href="{{ podcast.get_absolute_url }}">{{ podcast.title }}</a></h2>
+				</div>
+			</div>
+		</div>
+
+		
+	</div>
+	
+</div>

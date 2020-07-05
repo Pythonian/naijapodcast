@@ -1,0 +1,17 @@
+
+<div class="row">
+{% for blog in blogs %}
+	<div class="col-sm-6 mb-40">
+		<div class="podcast-card boxed">
+			<figure class="podcast-image"><a href="{{ blog.get_absolute_url }}"><img src="{{ blog.image.url }}" alt="{{ blog.caption|default:blog.title }}"></a></figure>
+			<div class="podcast-content">
+				<span class="podcast-date">{{ blog.created|date:"M j, Y" }}</span>
+				<h2 class="podcast-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
+				<p class="podcast-excerpt">{{ blog.summary|truncatechars:140 }}</p><br/>
+				<a href="{{ blog.get_absolute_url }}" class="btn btn-success">Keep Reading <i class="fa fa-chevron-right"></i></a>
+			</div>
+		</div>
+	</div>
+	{% cycle "" "</div><div class='row'>"%}
+{% endfor %}
+</div>

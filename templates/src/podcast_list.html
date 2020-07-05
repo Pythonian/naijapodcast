@@ -1,0 +1,26 @@
+
+<div class="row">
+	{% for podcast in podcasts %}
+	<div class="col-sm-12 mb-40">
+		<div class="podcast-card full">
+			<figure class="podcast-image"><a href="{{ podcast.get_absolute_url }}"><img src="{{ podcast.image.url }}" alt="{{ podcast.caption|default:podcast.title }}"></a></figure>
+			<div class="podcast-content">
+				<span class="podcast-date">{{ podcast.created|date:"M j, Y" }}</span>
+				<h2 class="podcast-title"><a href="{{ podcast.get_absolute_url }}">{{ podcast.title }}</a></h2>
+				<p class="podcast-excerpt">{{ podcast.summary }}</p>
+				<a href="{{ podcast.get_absolute_url }}" class="btn btn-success">Keep Reading <i class="fa fa-chevron-right"></i></a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+	
+	<!-- ===== PAGINATION ===== 
+	<div class="col-sm-12 text-center mb-50">
+		<ol class="pagination">
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+		</ol>
+	</div> -->
+</div>

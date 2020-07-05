@@ -1,0 +1,20 @@
+{% load crispy_forms_tags %}
+
+<!-- <form role="search" method="get" class="search-form" action="{# url 'blog:search' #}" id="search" >
+	<span class="screen-reader-text">Search for:</span>
+	{{ form|crispy }}
+	<input class="search-submit" value="Search" type="submit">
+</form> -->
+
+<form action="{% url 'naijapodcast:search' %}" class="form-search" method="get">
+	<!-- <fieldset>
+		<div class="col-md-9 nopadding">
+			<input name="search" class="form-control noborder" placeholder="Search" type="search">
+		</div>
+		<div class="col-md-3 nopadding">
+			<button class="btn btn-success btn-lg btn-block"><i class="fa fa-search"></i></button>
+		</div>
+	</fieldset> -->
+	{{ form|crispy }}
+	<input class="btn btn-success btn-lg btn-block" value="Search" type="submit">
+</form>

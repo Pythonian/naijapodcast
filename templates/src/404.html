@@ -1,0 +1,26 @@
+{% extends "src/base.html" %}
+{% load staticfiles %}
+{% block title %}404: Page Not Found | {{ block.super }}{% endblock %}
+{% block section %}
+		
+<!-- ===== MAIN ===== -->
+		<main id="main" class="main">
+			
+			<!-- ===== PAGE HEADER ===== -->
+			<section class="page-error" style="background-image: url({% static 'src/img/host.jpg' %});">
+				<div class="page-error-inner">
+					<div class="container">
+
+						<!-- ===== PAGE HEADER CONTENT ===== -->
+						<div class="page-error-content text-center">
+							<h2>Page not Found</h2>
+							<p class="mb-40">The page you are looking for doesn't exist. <br /> Don't worry... It happens to the best of us.</p>
+							<a href="/" class="btn btn-info">Back to home</a>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			
+		</main>
+{% endblock %}

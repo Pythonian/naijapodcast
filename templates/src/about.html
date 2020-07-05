@@ -1,0 +1,45 @@
+{% extends "src/base.html" %}
+{% load staticfiles %}
+{% block title %}About | {{ block.super }}{% endblock %}
+{% block section %}
+		
+		<main id="main" class="main">
+	
+			<header class="page-header" style="background-image: url({% static 'src/img/banner-11.jpg' %});">
+				<div class="page-header-inner">
+					<div class="container">
+						<div class="page-header-content text-center">
+							<h2>About NaijaPodcast</h2>
+						</div>
+					</div>
+				</div>
+			</header>
+			
+			<section id="about-us" class="section-negative">
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="page-description mb-60 mt-60">
+								<p>Nigeria is a peculiar nation. Ours is a youthful population with amazing abilities and an unbelievable can-do spirit.</p>
+								<p>Yet it's never been uhuru, nay, beans, like we say in Naija!</p>
+								<p>The society is fraught with challenges that have made it difficult for people to dream and thrive due to lack of basic amenities that is taken for granted in more advanced countries.</p>
+								<p>As a developing country, we face the attendant consequences of that status. But Naija peeps don't cower-we are calloused, and we don't give up in the face of stringencies.</p>
+								<p>NaijaPodcast emerged out of the desire to really make people's dream come true. It aspires to bridge the gap between the place of dream and accomplishment.</p> 	
+								<p>It seeks to rekindle our spirits as a people and help Nigerians, especially the younger ones-have a foot on their life as they go the extra mile to record great feats that will make their lives and society better. </p>
+								<p>The show would have an inspirational tone, but more importantly, it would be pragmatic, featuring guests (especially Nigerians) who are doing great stuff from all walks of life and different age brackets who will unstintingly share practical tips on how to make stuff happen here. </p>
+								<p>It doesn't matter where they are in this small world-we'll find them and bring them to you!   All you have to do is listen up and be inspired!</p>
+								<p>The podcast will be released every week and will be available for download on <a href="http://www.naijapodcast.com/">NaijaPodcast</a>, <a href="http://www.soundcloud.com/">Sound Cloud</a>, <a href="http://www.itunes.com/">iTunes</a> and other channels online.</p>
+							</div>
+						</div>
+					</div>
+						
+				
+					</div>
+			</section>
+						
+		</main>
+
+
+
+{% endblock %}

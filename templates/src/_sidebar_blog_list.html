@@ -1,0 +1,13 @@
+
+{% for blog in blog_list %}
+<div class="comment-item">
+	<div class="comment-image">
+		<figure><img src="{{ blog.image.url }}" alt="{{ blog.caption }}" width="100px" /></figure>
+	</div>
+	<div class="comment-content">
+		<span class="comment-author"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></span>
+		<span class="comment-date"><i class="fa fa-clock-o"></i> {{ blog.created|date:"F j, Y" }}</span>
+	</div>
+</div>
+{% empty %}<p>No Post has been published yet.</p>
+{% endfor %}

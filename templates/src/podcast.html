@@ -1,0 +1,106 @@
+{% extends "src/base.html" %}
+{% load staticfiles %}
+{% block title %}{{ podcast.title }} | {{ block.super }}{% endblock %}
+{% block section %}
+		
+		<main id="main" class="main">
+	
+			<header class="page-header-podcast" style="background-image: url({% static 'src/img/banner-5.jpg' %});">
+				<div class="page-header-inner">
+					<div class="container">
+						<div class="page-header-content text-center">
+							<h2>{{ podcast.title }}</h2>
+							<p>{{ podcast.summary }}</p>
+						</div>
+					</div>
+				</div>
+			</header>
+			
+			<div class="podcast-player">
+				<div class="podcast-player-inner">
+					<div class="container">
+						<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/284676857&amp;color=358cb4&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false" width="100%" height="166" frameborder="no" scrolling="no"></iframe>
+						<!--{{ podcast.audio_embed|safe }}-->
+					</div>
+				</div>
+			</div>
+			
+			<div class="section-negative">
+				<div class="container">
+					
+					<div class="row mt-70 mb-50">
+						
+						<div class="col-md-8">
+							
+							<div class="page-content">
+								<figure><img src="{{ podcast.image.url }}" alt="{{ podcast.caption|default:podcast.title }}" /></figure>
+								<div class="podcast-meta-element">
+									<span class="podcast-meta-item"><i class="fa fa-calendar"></i> {{ podcast.created|date:"F d, Y" }}</span>
+									<span class="podcast-meta-item"><i class="fa fa-eye"></i> {{ podcast.impressions }} view{{ podcast.impressions|pluralize }}</span>
+									<span class="podcast-meta-item"><i class="fa fa-user"></i> naijapodcast</span>
+								</div>
+								<hr/>
+								{{ podcast.body|safe }}
+								
+								<!-- ===== GALLERY WITH ZOOM ===== -->
+								<div class="page-gallery">
+									{% for pi in podcast.images.all %}
+									<div class="col-md-6 col-xs-6 nopadding">
+										<figure class="gallery-item">
+											<a href="{{ pi.image.url }}" class="gallery-zoom" title="{{ pi.caption }}">
+												<img src="{{ pi.image.url }}" alt="{{ pi.caption }}"/>
+											</a>
+											{% if pi.caption %}<figcaption>{{ pi.caption }}</figcaption>{% endif %}
+										</figure>
+									</div>
+									{% endfor %}
+								</div>
+								
+							</div>
+							
+							<hr />
+							
+							<ul class="social-list colored">
+								<li class="social-item facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a></li>
+								<li class="social-item twitter"><a href="https://twitter.com/intent/tweet?text={{ podcast.title }}&url={{ request.build_absolute_uri }}" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a></li>
+								<li class="social-item google"><a href="https://plus.google.com/share?url={{ request.build_absolute_uri }}" target="_blank" title="Share on Google plus"><i class="fa fa-google-plus"></i></a></li>
+								<li class="social-item email"><a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ podcast.title }}" target="_blank" title="Share on Reddit"><i class="fa fa-reddit"></i></a></li>
+							</ul>
+							
+							<hr />
+				
+							{% if podcast.get_previous_by_created or podcast.get_next_by_created %}
+							<div class="page-pagination">
+								{% if podcast.get_previous_by_created %}
+								<a href="{{ podcast.get_previous_podcast.get_absolute_url }}" class="page-pagination-prev">
+									<i class="fa fa-long-arrow-left"></i>
+									<span>Previous Podcast</span>
+									<p>{{ podcast.get_previous_podcast }}</p>
+								</a>
+								{% endif %}
+								{% if podcast.get_next_by_created %}
+								<a href="{{ podcast.get_next_podcast.get_absolute_url }}" class="page-pagination-next">
+									<i class="fa fa-long-arrow-right"></i>
+									<span>Next Podcast</span>
+									<p>{{ podcast.get_next_podcast }}</p>
+								</a>
+								{% endif %}
+							</div>
+							{% endif %}
+							
+							<hr />
+							
+							
+						</div>
+						
+						<!-- ===== SIDEBAR ===== 
+						-->
+						{% include 'src/_sidebar.html' %}
+					</div>
+					
+				</div>
+			</div>
+			
+		</main>
+
+{% endblock %}

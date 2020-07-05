@@ -1,0 +1,6 @@
+Django
+django-ckeditor
+django-imagekit
+pytz
+django-disqus
+django-crispy-forms

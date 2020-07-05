@@ -1,0 +1,24 @@
+{% extends "src/base.html" %}
+{% load staticfiles %}
+{% block title %}Blog | {{ block.super }}{% endblock %}
+{% block section %}
+<main id="main" class="main">
+
+	<header class="page-header" style="background-image: url({% static 'src/img/banner-17.jpg' %})">
+		<div class="page-header-inner">
+			<div class="container">
+				<div class="page-header-content text-center">
+					<h2>Blog</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<section class="section-positive">
+		<div class="container">
+			{% include 'src/blog_list.html' %}
+		</div>
+	</section>
+				
+</main>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "src/base.html" %}
+{% load staticfiles %}
+{% block title %}Host | {{ block.super }}{% endblock %}
+{% block section %}
+<main id="main" class="main">
+	<header class="page-header" style="background-image: url({% static 'src/img/host.jpg' %});">
+		<div class="page-header-inner">
+			<div class="container">
+				<div class="page-header-content text-center">
+					<h2>The Host</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="section-negative">
+		<div class="container">
+			<div class="page-content mt-60">
+				<div class="row">
+					<div class="col-md-6 mb-20"><img src="{% static 'src/img/host.jpg' %}" alt="Host - Opeyemi Philips"></div>
+					<div class="col-md-6 mb-20">
+						<p>NaijaPodcast is hosted by Opeyemi Philips, a freelance writer, speaker, voice talent and entrepreneur. He writes under the pseudonym O.P. Philips and is the author of The "OBAMA" in You! He is also the creator of the "What Football Teaches" (WFT) Brand.</p>
+						<p>Opeyemi is a football buff and a voracious consumer of Massive Open Online Courses (MOOCs)! He is in a relationship and lives in Surulere, the heart of Lagos.</p>
+						<p>Follow Opeyemi on Twitter: @opphilips</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+{% endblock %}
